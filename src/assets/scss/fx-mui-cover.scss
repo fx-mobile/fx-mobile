@@ -1,0 +1,42 @@
+/* 全局修改fx-mui组件样式 */
+.mint-tabbar > .mint-tab-item.is-selected {
+    background-color: #fff !important;
+    color: $mainColor !important;
+}
+
+.mint-tabbar .mint-tab-item-label {
+    font-size: $px20;
+}
+
+.mint-tabbar {
+    align-items: center;
+    height: $px98;
+}
+
+.mint-tabbar .mint-tab-item-icon {
+    width: $px40;
+    height: $px40;
+    margin: 0 auto $px12;
+}
+
+.mint-tabbar .mint-tab-item {
+    position: relative;
+    padding: 0 !important;
+}
+
+.mint-navbar {
+    overflow: hidden;
+}
+
+.mint-navbar .mint-tab-item-label {
+    font-size: 0.453rem !important;
+}
+
+.mint-navbar .mint-tab-item {
+    padding: $px34 0 !important;
+}
+
+.mint-navbar .mint-tab-item.is-selected {
+    border-bottom: $px2 solid #26a2ff;
+    margin-bottom: 0;
+}

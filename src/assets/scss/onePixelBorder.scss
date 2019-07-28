@@ -1,0 +1,100 @@
+// 占据伪元素before或after，实现1px线
+
+%shrink {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: left top;
+    z-index: -1;
+}
+
+%before-positioning {
+    position: relative;
+    z-index: 1;
+    &::before {
+        @extend %shrink;
+    }
+}
+%after-positioning {
+    position: relative;
+    z-index: 1;
+    &::after {
+        @extend %shrink;
+    }
+}
+
+// 显示上下左右线
+@mixin before-scale-border($color: #000) {
+    @extend %before-positioning;
+    &::before {
+        border: 1px solid $color;
+    }
+}
+// 仅显示top线
+@mixin before-scale-border-top($color: #000) {
+    @extend %before-positioning;
+    &::before {
+        border-top: 1px solid $color;
+    }
+}
+// 仅显示right线
+@mixin before-scale-border-right($color: #000) {
+    @extend %before-positioning;
+    &::before {
+        border-right: 1px solid $color;
+    }
+}
+// 仅显示bottom线
+@mixin before-scale-border-bottom($color: #000) {
+    @extend %before-positioning;
+    &::before {
+        border-bottom: 1px solid $color;
+    }
+}
+// 仅显示left线
+@mixin before-scale-border-left($color: #000) {
+    @extend %before-positioning;
+    &::before {
+        border-left: 1px solid $color;
+    }
+}
+
+// 显示上下左右线
+@mixin after-scale-border($color: #000) {
+    @extend %after-positioning;
+    &::after {
+        border: 1px solid $color;
+    }
+}
+// 仅显示top线
+@mixin after-scale-border-top($color: #000) {
+    @extend %after-positioning;
+    &::after {
+        border-top: 1px solid $color;
+    }
+}
+// 仅显示right线
+@mixin after-scale-border-right($color: #000) {
+    @extend %after-positioning;
+    &::after {
+        border-right: 1px solid $color;
+    }
+}
+// 仅显示bottom线
+@mixin after-scale-border-bottom($color: #000) {
+    @extend %after-positioning;
+    &::after {
+        border-bottom: 1px solid $color;
+    }
+}
+// 仅显示left线
+@mixin after-scale-border-left($color: #000) {
+    @extend %after-positioning;
+    &::after {
+        border-left: 1px solid $color;
+    }
+}
