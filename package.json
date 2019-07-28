@@ -85,5 +85,19 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".postcssrc.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fx-mobile/fx-mobile.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fx-mobile/fx-mobile/issues"
+  },
+  "homepage": "https://github.com/fx-mobile/fx-mobile#readme"
 }
