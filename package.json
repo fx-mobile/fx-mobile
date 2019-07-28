@@ -3,7 +3,6 @@
   "version": "0.1.1",
   "description": "foresee mobile framework",
   "author": "platform@foresee.com.cn>",
-  "private": true,
   "scripts": {
     "dev": "cross-env CUR_ENV=development webpack-dev-server --inline --config build/webpack.dev.conf.js",
     "build:dev": "cross-env CUR_ENV=dev node build/build.js dev",
