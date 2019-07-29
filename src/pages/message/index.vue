@@ -54,9 +54,8 @@
 
 <script>
 import Vue from "vue";
-import { Navbar, TabItem, Toast } from "fx-mui";
+import { Navbar, TabItem, Toast,InfiniteScroll } from "fx-mui";
 import { customAsync } from "@/api/async";
-import { InfiniteScroll } from "fx-mui";
 import sessionStorageUtil from "@/utils/sessionStorageUtil";
 import noData from "@/components/common/noData";
 import { getUserInfo } from "@/assets/js/common";
