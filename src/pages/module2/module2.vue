@@ -1,6 +1,13 @@
 <template>
   <div>
     <v-wx-header show showLeft></v-wx-header>
+    <hr style="padding:.48rem 0" />
+    <mt-button size="large" type="primary">A产品</mt-button>
+    <hr style="padding:.48rem 0" />
+    <mt-button size="large" type="default">B产品</mt-button>
+    <hr style="padding:.48rem 0" />
+    <mt-button size="large" type="danger">C产品</mt-button>
+    <hr style="padding:.48rem 0" />
     <div style="background:#fff;padding-top:.48rem; min-height:100%">
       <v-form-title title="列表"></v-form-title>
       <info-show-three
@@ -26,27 +33,22 @@ export default {
       userInfo: "",
       zjInfo: [
         {
-          mainTitle:
-            "我是列表一我是列表一我是列表一我是列表一我是列表一我是列表一我是列表一",
-          subheading: "1111111111"
+          mainTitle: "我是产品一团队",
+          subheading: "我是产品一团队"
         },
         {
-
-          mainTitle: "列表二列表二列表二列表二",
-          subheading: "列表二"
+          mainTitle: "我是产品二团队",
+          subheading: "我是产品二团队"
         },
         {
-
+          mainTitle: "我是产品三团队",
+          subheading: "我是产品三团队"
+        },
+        {
           mainTitle: "列表三列表三列表三列表三列表三",
           subheading: "列表三"
         },
         {
-
-          mainTitle: "列表三列表三列表三列表三列表三",
-          subheading: "列表三"
-        },
-        {
-
           mainTitle: "列表三列表三列表三列表三列表三",
           subheading: "列表三"
         },
@@ -69,17 +71,7 @@ export default {
   components: {
     infoShowThree
   },
-  created() {
-    if (!!sessionStorageUtil.getItem("user.login.info")) {
-      this.userInfo = sessionStorageUtil.getItem("user.login.info");
-    } else {
-      getUserInfo(this);
-    }
-    if (this.userInfo.nsr) {
-      this.getSwdljgsqInfo();
-    }
-    //getUserInfo(this);
-  },
+  created() {},
 
   mounted() {},
 
@@ -89,24 +81,7 @@ export default {
     toUrl(url) {
       this.$router.push(url);
     },
-    getSwdljgsqInfo() {
-      customAsync({
-        that: this,
-        filterFlag: true,
-        method: "getSwdljgsqInfo",
-        paramObj: {},
-        callback: res => {
-          if (res.errorcode == "0") {
-            this.swdljgsq = res.data.swdljgsq;
-            if (this.swdljgsq.sqzt) {
-              if (this.swdljgsq.sqzt != 2) {
-                this.sqztFlag = true;
-              }
-            }
-          }
-        }
-      });
-    },
+    test2() {},
     blockInfo(index) {
       if (
         !(
@@ -119,63 +94,21 @@ export default {
       }
 
       if (index == 0) {
-        if (this.userInfo.nsr.yhsfdm != "01") {
-          Toast("不是法人不能申请税务代理机构资格");
-          return;
-        }
-        if (this.swdljgsq.sqzt == "1") {
-          this.$router.push("/entry/ddsp");
-        } else if (this.swdljgsq.sqzt == "2") {
-          this.$router.push({
-            path: "/entry/cgba",
-            query: { sprq: this.swdljgsq.sprq }
-          });
-        } else if (this.swdljgsq.sqzt == "3") {
-          this.$router.push("/entry/spbtg");
-        } else {
-          if (this.userInfo.nsr.yhsfdm == "01") {
-            if (this.userInfo.nsr) {
-              this.$router.push({
-                path: "/entry/swdljgsq01"
-              });
-            } else {
-              Toast("未绑定企业");
-            }
-          } else {
-            Toast("不是法人不能申请成为代理资格");
-          }
-        }
+        this.$router.push({
+          path: "/entry/goto",
+          query: { title: "百度", url: "https://fx-mobile.github.io/baidu.html" }
+        });
       } else if (index == 1) {
-        if (
-          this.userInfo.nsr.yhsfdm != "01" &&
-          this.userInfo.nsr.yhsfdm != "02"
-        ) {
-          Toast("您无此权限");
-          return;
-        }
-
-        if (this.swdljgsq.sqzt == "2") {
-          this.$router.push({
-            path: "/entry/swdlgxwh"
-          });
-        } else {
-          Toast("请前往税务代理机构申请成为代理资格");
-        }
+        this.$router.push({
+          path: "/entry/goto",
+          query: {
+            title: "知识库",
+            url:
+              "https://vuejs.org/v2/guide/"
+          }
+        });
       } else {
-        if (
-          this.userInfo.nsr.yhsfdm != "01" &&
-          this.userInfo.nsr.yhsfdm != "02"
-        ) {
-          Toast("您无此权限");
-          return;
-        }
-        if (this.swdljgsq.sqzt == "2") {
-          this.$router.push({
-            path: "/entry/swjgrygl"
-          });
-        } else {
-          Toast("请前往税务代理机构申请成为代理资格");
-        }
+        Toast("您无此权限");
       }
     }
   }

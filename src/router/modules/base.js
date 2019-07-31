@@ -4,11 +4,11 @@ const message = r => require.ensure([], () => r(require('@/pages/message/')), ''
 const user = r => require.ensure([], () => r(require('@/pages/user/')), '')
 const my = r => require.ensure([], () => r(require('@/pages/my/')), '')
 const userForm = r => require.ensure([], () => r(require('@/pages/user/form')), '')
-
+const goto = r => require.ensure([], () => r(require('@/pages/module2/goto')), '')
 
 export default [
     { path: 'home', name: 'home', component: home, meta: { showTab: true, title: '首页' } },
-    { path: 'message', name: 'message', component: message, meta: { showTab: true, keepAlive: false, title: '消息' } },
+    { path: 'message', name: 'message', component: message, meta: { showTab: true, keepAlive: true, title: '消息' } },
     {
         path: 'user',
         component: user,
@@ -22,6 +22,13 @@ export default [
             }
         }
         ]
+    },
+    {
+        path: 'goto',
+        component: goto,
+        meta: {
+            showTab: true
+        }
     },
     {
         path: 'my',

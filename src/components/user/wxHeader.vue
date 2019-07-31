@@ -75,7 +75,7 @@ export default {
        } else if(this.$route.meta.title){
            this.metatitle = this.$route.meta.title;
        }else{
-           this.metatitle = '实名办税'
+           this.metatitle = '无标题'
        }
     },
 

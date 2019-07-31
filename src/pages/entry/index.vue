@@ -1,6 +1,11 @@
 <template>
   <div class="entry-wrapper">
     <keep-alive>
+      
+      <span>
+        <i class="filtrate iconfont"></i>
+        <div>科技公司</div>
+      </span>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
@@ -137,21 +142,7 @@ export default {
         callback: res => {
           // console.log("res", res);
           if (res.errorcode == 0) {
-            this.getMyTodoEntry(res.data.unReadNum);
-          }
-        }
-      });
-    },
-    getMyTodoEntry(num) {
-      customAsync({
-        that: this,
-        method: "getMyTodo",
-        filterFlag: true,
-        notShowLoading: true,
-        paramObj: {},
-        callback: res => {
-          if (res.errorcode == 0) {
-            this.$store.dispatch("SetBadgeNum", res.data.unProcessNum + num);
+            
           }
         }
       });
