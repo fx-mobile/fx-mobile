@@ -1,0 +1,13 @@
+/* 全局修改fx-mui组件样式 */
+.mint-switch-input:checked + .mint-switch-core{
+	background-color: $mainColor2;
+	border-color: $mainColor2;
+}
+.mint-button--primary{
+	background-color: $mainColor2;
+}
+
+.mint-checkbox-core{
+	border-color:$mainColor2;
+	background-color:$mainColor2;
+}
