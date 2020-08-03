@@ -60,7 +60,7 @@ export default function () {
 				app.params[key] = params;
 				app.method[key] = paramsJson.method;
 				var iframe = document.createElement("IFRAME");
-				iframe.setAttribute("src", "foresee://callNative?key=" + key);
+				iframe.setAttribute("src", "fx-mobile://callNative?key=" + key);
 				document.documentElement.appendChild(iframe);
 				iframe.parentNode.removeChild(iframe);
 				iframe = null;
