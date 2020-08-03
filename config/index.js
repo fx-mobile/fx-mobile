@@ -45,7 +45,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/v1': {
-                target: 'https://www.easy-mock.com/mock/58ff650c739ac1685205a1a7/foresee',
+                target: 'https://www.easy-mock.com/mock/58ff650c739ac1685205a1a7/*',
                 changeOrigin: true
             },
             
